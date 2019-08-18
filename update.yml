@@ -1,9 +1,8 @@
-version: 0
 github:
-- owner: RyanHecht
-- repository: MCParks-ResourcePack
+- owner: repoowner
+- repository: repo-name
 mcmeta:
 - packversion: 3
-- description: MCParks Resource Pack v1.12_30
+- description: repo description
 output:
-- zipname: mcparkspack
+- zipname: zipname
