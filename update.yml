@@ -1,9 +1,9 @@
 github:
-- owner: repoowner
-- repository: repo-name
+- owner: RyanHecht
+- repository: MCParks-ResourcePack
 mcmeta:
 - packversion: 3
-- description: repo description
+- description: Test for v0.1
 output:
-- zipname: zipname
+- zipname: test-mcparkspack
 #test

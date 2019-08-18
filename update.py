@@ -11,14 +11,12 @@ def main():
     info = yaml.load(file, Loader=yaml.FullLoader)
     repo = info['github'][1]['repository']
     rungit(info['github'][0]['owner'], repo)
-    writemcmeta(info['mcmeta'], repo, version)
-    updatepackversion(info)
+    writemcmeta(info['mcmeta'], repo,)
     file.close()
-    remove("update.yml")
-    rename("update2.yml", "update.yml")
+    zip(str(repo), str(info['output'][0]['zipname']))
 
 #Retrives repository from github
-def rungit(owner, repo, version):
+def rungit(owner, repo):
     dir_path = path.dirname(path.realpath(__file__))
     if (path.isdir(dir_path + "/" + repo)):
         system("cd " + dir_path + "/" + repo)
@@ -41,7 +39,7 @@ def updatemcmeta(mcmeta):
     return update
 #Zips and packages folder for use
 def zip(repo, zipName):
-    system("cd " + repo)
-    system("git archive --format zip --output " + zipName + ".zip")
+    system("cd " + repo + "/")
+    system("git archive --format zip --output " + zipName + ".zip master")
 #run script
 main()
