@@ -1,0 +1,6 @@
+[submodule "GitPython"]
+	path = GitPython
+	url = https://github.com/gitpython-developers/GitPython
+[submodule "pyyaml"]
+	path = pyyaml
+	url = https://github.com/yaml/pyyaml/
