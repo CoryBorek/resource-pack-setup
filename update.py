@@ -19,7 +19,7 @@ def main():
 def rungit(owner, repo):
     dir_path = path.dirname(path.realpath(__file__))
     if (path.isdir(dir_path + "/" + repo)):
-        system("cd " + dir_path + "/" + repo)
+        system("cd " + str(dir_path) + "/" + str(repo))
         system("git pull")
         system("cd ../")
     else:
@@ -39,7 +39,6 @@ def updatemcmeta(mcmeta):
     return update
 #Zips and packages folder for use
 def zip(repo, zipName):
-    system("cd " + repo + "/")
-    system("git archive --format zip --output " + zipName + ".zip master")
+    system("cd " + repo +"&& git archive --format zip --output " + zipName + ".zip")
 #run script
 main()
