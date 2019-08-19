@@ -1,0 +1,3 @@
+config-folder: config/
+output-all-folder: 'true' or 'false' (false puts it in the python file's directory)
+output-folder: path/to/export/all/files/to
