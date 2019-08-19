@@ -7,7 +7,7 @@ from pathlib import Path
 #Import gitpython library: "https://gitpython.readthedocs.io/en/stable/"
 # Main function. Controls rest of file
 def main():
-    file = open("update.yml", "r")
+    file = open("config.yml", "r")
     info = yaml.load(file, Loader=yaml.FullLoader)
     repo = info['github'][1]['repository']
     rungit(info['github'][0]['owner'], repo)

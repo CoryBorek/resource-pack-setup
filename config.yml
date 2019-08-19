@@ -1,0 +1,9 @@
+github:
+ - owner: Repo owner
+ - repository: repository name
+mcmeta:
+ - packversion: 3
+ - description: description goes here
+output:
+ - zipname: zip-name
+#- location: path/to/file <-- To be added later
