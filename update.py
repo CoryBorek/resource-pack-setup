@@ -13,6 +13,13 @@ def main():
     rungit(info['github'][0]['owner'], repo)
     writemcmeta(info['mcmeta'], repo,)
     file.close()
+    if(str(info['mcmeta'][2]['doversion']) == "true"):
+        info['mcmeta'][3]['version'] = info['mcmeta'][3]['version'] + 1
+        upload = open("config2.yml", "a")
+        upload.write(yaml.dump(info))
+        upload.close()
+        remove("config.yml")
+        rename("config2.yml", "config.yml")
     zip(str(repo), str(info['output'][0]['zipname']))
 
 #Retrives repository from github
@@ -33,7 +40,11 @@ def writemcmeta(info2, repo):
 def updatemcmeta(mcmeta):
     version = str(mcmeta[0]['packversion'])
     desc = str(mcmeta[1]['description'])
-    update = ('{' + '\n' + '"pack": {\n"pack_format": ' + version + ',\n' + '"description": "' + desc + '"\n}\n}')
+    version2 = str(mcmeta[3]['version'])
+    if(str(mcmeta[2]['doversion']) == "true"):
+        update = ('{' + '\n' + '"pack": {\n"pack_format": ' + version + ',\n' + '"description": "' + desc + version2 + '"\n}\n}')
+    else:    
+        update = ('{' + '\n' + '"pack": {\n"pack_format": ' + version + ',\n' + '"description": "' + desc + '"\n}\n}')
     return update
 #Zips and packages folder for use
 def zip(repo, zipName):

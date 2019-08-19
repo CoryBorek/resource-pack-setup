@@ -4,6 +4,8 @@ github:
 mcmeta:
  - packversion: 3
  - description: description goes here
+ - doversion: 'true / false'
+ - version: 30
 output:
  - zipname: zip-name
 #- location: path/to/file <-- To be added later
