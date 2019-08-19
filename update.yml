@@ -1,9 +1,9 @@
 github:
-- owner: RyanHecht
-- repository: MCParks-ResourcePack
+ - owner: Repo owner
+ - repository: repository name
 mcmeta:
-- packversion: 3
-- description: Test for v0.1
+ - packversion: 3
+ - description: description goes here
 output:
-- zipname: test-mcparkspack
-#test
+ - zipname: zip-name
+#- location: path/to/file <-- To be added later

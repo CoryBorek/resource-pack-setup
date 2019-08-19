@@ -3,7 +3,7 @@
 import yaml
 #Allows me to remove pack.mcmeta
 from os import remove, path, rename, mkdir, system
-from os import path
+from pathlib import Path
 #Import gitpython library: "https://gitpython.readthedocs.io/en/stable/"
 # Main function. Controls rest of file
 def main():
@@ -19,9 +19,7 @@ def main():
 def rungit(owner, repo):
     dir_path = path.dirname(path.realpath(__file__))
     if (path.isdir(dir_path + "/" + repo)):
-        system("cd " + str(dir_path) + "/" + str(repo))
-        system("git pull")
-        system("cd ../")
+        system("cd " + repo + "&& git pull")
     else:
         system("git clone https://github.com/" + owner + "/" + repo + ".git")
 #Writes mcmeta retrieved earlier
@@ -39,6 +37,9 @@ def updatemcmeta(mcmeta):
     return update
 #Zips and packages folder for use
 def zip(repo, zipName):
-    system("cd " + repo +"&& git archive --format zip --output " + zipName + ".zip")
+    if(Path(zipName + ".zip").exists()):
+        rename(zipName + ".zip", zipName + "2.zip")
+        remove(zipName + "2.zip")
+    system("cd " + repo +'&& git add -A && git commit -m "Updating Pack"&& git archive --format zip --output ' + zipName + '.zip master && rename "' + zipName + '.zip" "../' + zipName + '.zip"')
 #run script
 main()
