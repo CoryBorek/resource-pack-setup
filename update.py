@@ -58,11 +58,11 @@ def zip(repo, zipName, settings):
 		if(Path(outputfolder + zipName + ".zip").exists()):
 			rename(outputfolder + zipName + ".zip",outputfolder + zipName + "2.zip")
 			remove(outputfolder +zipName + "2.zip")
-		system("cd " + repo +'&& git add -A && git commit -m "Updating Pack"&& git archive --format zip --output ' + zipName + '.zip master && move "' + zipName + '.zip" "' + outputfolder + zipName + '.zip"')
+		system("cd " + repo +'&& git add -A && git commit -m "Updating Pack"&& git archive --format zip --output ' + zipName + '.zip master && rename "' + zipName + '.zip" "' + outputfolder + zipName + '.zip"')
 	else:
 		if(Path(zipName + ".zip").exists()):
 			rename(zipName + ".zip", zipName + "2.zip")
 			remove(zipName + "2.zip")
-		system("cd " + repo +'&& git add -A && git commit -m "Updating Pack"&& git archive --format zip --output ' + zipName + '.zip master && move "' + zipName + '.zip" "../' + zipName + '.zip"')
+		system("cd " + repo +'&& git add -A && git commit -m "Updating Pack"&& git archive --format zip --output ' + zipName + '.zip master && rename "' + zipName + '.zip" "../' + zipName + '.zip"')
 #run script
 main()
